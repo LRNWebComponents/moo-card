@@ -66,7 +66,7 @@
       }
 
     </style>
-    <div id="container" role$="[[__containerRole()]]" href$="[[url]]" on-tap="__clickHandler">
+    <div id="container" role$="[[__containerRole()]]" href$="[[url]]" on-tap="__clickHandler" tabindex$="[[__containerTabIndex()]]">
       <div id="info">
         <h2 id="title">[[title]]</h2>
         <slot></slot>
@@ -117,9 +117,25 @@
         return false;
       },
 
+      /**
+       * If we have a url and we have a click then go to that page
+       */
       __clickHandler: function (e) {
         if (this.url) {
           window.open(this.url, '_blank');
+        }
+      },
+
+      /**
+       * Find out if we should place a tabindex on the container
+       */
+       __containerTabIndex: function () {
+         return '-1';
+        if (this.url) {
+          return '-1';
+        }
+        else {
+          return false;
         }
       }
     });
