@@ -1,5 +1,6 @@
 <link rel="import" href="../polymer/polymer.html">
 <link rel="import" href="../iron-image/iron-image.html">
+<link rel="import" href="../iron-behaviors/iron-button-state.html">
 
 <!--
 `moo-card`
@@ -86,6 +87,8 @@
     Polymer({
 
       is: 'moo-card',
+
+      behaviors: [Polymer.IronButtonState],
 
       properties: {
         title: {
